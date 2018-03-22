@@ -1,6 +1,10 @@
 version: '2'
  
 services:
+ postgres:
+   image: postgres
+   restart: always
+
  web:
    restart: always
    build: .
@@ -8,7 +12,9 @@ services:
      - "8000"
    volumes:
      - /usr/src/app/project/static
-   command: python manage.py runserver
+   command: python manage.py create_db
+   depends_on:
+     - postgres
  
  nginx:
    restart: always
@@ -21,3 +27,4 @@ services:
      - web
    depends_on:
      - web
+

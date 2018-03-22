@@ -1,14 +1,16 @@
-FROM python:3.5.1-alpine
+FROM ubuntu:latest
 MAINTAINER Ivan Hreskiv <ivanhreskiv@gmail.com>
 
-RUN pip install --upgrade pip setuptools wheel
-COPY wheeldir /opt/app/wheeldir
-# These are copied and installed first in order to take maximum advantage
-# of Docker layer caching (if enabled).
+RUN apt-get update -y
+RUN apt-get install -y python-pip python-dev build-essential libpq-dev
+
 COPY *requirements.txt /opt/app/src/
-RUN pip install --use-wheel --no-index --find-links=/opt/app/wheeldir \
-    -r /opt/app/src/requirements.txt
+RUN pip install -r /opt/app/src/requirements.txt
 
 COPY . /opt/app/src/
 WORKDIR /opt/app/src
-#RUN python setup.py install
+CMD python manage.py create_db
+CMD python manage.py db init
+CMD python manage.py db migrate
+CMD python manage.py runserver
+EXPOSE 5000 
