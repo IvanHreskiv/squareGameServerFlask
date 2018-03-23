@@ -12,5 +12,5 @@ WORKDIR /opt/app/src
 CMD python manage.py create_db
 CMD python manage.py db init
 CMD python manage.py db migrate
-CMD python manage.py runserver
+CMD python manage.py runserver -h 0.0.0.0 -p 5000
 EXPOSE 5000 

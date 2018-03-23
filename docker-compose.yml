@@ -2,17 +2,16 @@ version: '2'
  
 services:
  postgres:
-   image: postgres
    restart: always
+   build: ./postgres
+   expose:
+     - "5432"
 
  web:
    restart: always
    build: .
    expose:
-     - "8000"
-   volumes:
-     - /usr/src/app/project/static
-   command: python manage.py create_db
+     - "5000"
    depends_on:
      - postgres
  
@@ -22,9 +21,7 @@ services:
    ports:
      - "80:80"
    volumes:
-     - /www/static
-   volumes_from:
-     - web
+     - ./project/static/:/www/static/
    depends_on:
      - web
 
