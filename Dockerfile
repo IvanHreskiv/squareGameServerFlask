@@ -2,7 +2,7 @@ FROM ubuntu:latest
 MAINTAINER Ivan Hreskiv <ivanhreskiv@gmail.com>
 
 RUN apt-get update -y
-RUN apt-get install -y python-pip python-dev build-essential libpq-dev
+RUN apt-get install -y python-pip python-dev build-essential libpq-dev git
 
 COPY *requirements.txt /opt/app/src/
 RUN pip install -r /opt/app/src/requirements.txt

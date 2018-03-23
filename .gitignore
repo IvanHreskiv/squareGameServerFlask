@@ -4,6 +4,7 @@ venv
 temp
 tmp
 __pycache__
+project/static
 
 *.pyc
 *.sqlite
