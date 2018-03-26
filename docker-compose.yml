@@ -15,6 +15,14 @@ services:
    depends_on:
      - postgres
 
+ client:
+   restart: always
+   build: ./client
+   ports:
+     - "3000:3000"
+   expose:
+     - "3000"
+
  
  nginx:
    restart: always
@@ -25,3 +33,4 @@ services:
      - ./project/static:/www/static/
    depends_on:
      - web
+     - client

@@ -5,6 +5,8 @@ temp
 tmp
 __pycache__
 project/static
+client/
+*/.ropeproject
 
 *.pyc
 *.sqlite
