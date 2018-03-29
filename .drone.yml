@@ -1,0 +1,32 @@
+pipeline:
+ postgres:
+   restart: always
+   build: ./postgres
+   expose:
+     - "5432"
+
+ web:
+   restart: always
+   build: .
+   expose:
+     - "5000"
+   depends_on:
+     - postgres
+
+ client:
+   restart: always
+   build: ./client
+   expose:
+     - "3000"
+
+ 
+ nginx:
+   restart: always
+   build: ./nginx
+   ports:
+     - "8888:8888"
+   volumes:
+     - ./project/static:/www/static/
+   depends_on:
+     - web
+     - client
