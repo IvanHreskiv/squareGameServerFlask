@@ -10,6 +10,8 @@ services:
  web:
    restart: always
    build: .
+   volumes:
+     - ./project:/opt/app/src/project
    expose:
      - "5000"
    depends_on:
@@ -18,6 +20,8 @@ services:
  client:
    restart: always
    build: ./client
+   volumes:
+     - ./client/src:/app/src/
    expose:
      - "3000"
 
@@ -27,8 +31,6 @@ services:
    build: ./nginx
    ports:
      - "80:80"
-   volumes:
-     - ./project/static:/www/static/
    depends_on:
      - web
      - client
