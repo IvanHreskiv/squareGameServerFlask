@@ -30,38 +30,16 @@ Set a SECRET_KEY:
 $ export SECRET_KEY="change_me"
 ```
 
-### Create DB
-
-Create the databases in `psql`:
-
-```sh
-$ psql
-# create database flask_jwt_auth
-# create database flask_jwt_auth_test
-# \q
-```
-
-Create the tables and run the migrations:
-
-```sh
-$ python manage.py create_db
-$ python manage.py db init
-$ python manage.py db migrate
-```
-
 ### Run the Application
 
 ```sh
-$ python manage.py runserver
+$ docker-compose build
+```
+```sh
+$ docker-compose up
 ```
 
-Access the application at the address [http://localhost:5000/](http://localhost:5000/)
-
-> Want to specify a different port?
-
-> ```sh
-> $ python manage.py runserver -h 0.0.0.0 -p 8080
-> ```
+Access the application at the address [http://0.0.0.0/client](http://0.0.0.0/client)
 
 ### Testing
 
