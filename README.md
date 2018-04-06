@@ -1,10 +1,6 @@
 # Flask JWT Auth
 
-[![Build Status](https://travis-ci.org/realpython/flask-jwt-auth.svg?branch=master)](https://travis-ci.org/realpython/flask-jwt-auth)
-
-## Want to learn how to build this project?
-
-Check out the [blog post](https://realpython.com/blog/python/token-based-authentication-with-flask/).
+[![Build Status](https://travis-ci.org/IvanHreskiv/squareGameServerFlask.svg?branch=master)](https://travis-ci.org/IvanHreskiv/squareGameServerFlask)
 
 ## Want to use this project?
 
