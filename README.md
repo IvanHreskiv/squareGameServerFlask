@@ -68,11 +68,11 @@ Access the application at the address [http://localhost:5000/](http://localhost:
 Without coverage:
 
 ```sh
-$ python manage.py test
+$ docker-compose exec web python manage.py test
 ```
 
 With coverage:
 
 ```sh
-$ python manage.py cov
+$ docker-compose exec web python manage.py cov
 ```
