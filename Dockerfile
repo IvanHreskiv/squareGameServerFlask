@@ -10,6 +10,5 @@ RUN pip install -r /opt/app/src/requirements.txt
 
 COPY . /opt/app/src/
 WORKDIR /opt/app/src
-CMD python manage.py create_db && \
-    python manage.py db init && \
-    python manage.py runserver -h 0.0.0.0 -p 5000
+RUN python manage.py db init
+CMD python manage.py runserver -h 0.0.0.0 -p 5000
