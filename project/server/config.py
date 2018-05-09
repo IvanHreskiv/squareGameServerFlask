@@ -2,7 +2,7 @@
 
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
-postgres_local_base = 'postgresql://postgres:@postgres:5432/'
+postgres_local_base = 'postgresql://puc:123@localhost:5432/'
 database_name = 'flask_jwt_auth'
 
 class BaseConfig:
@@ -17,7 +17,7 @@ class DevelopmentConfig(BaseConfig):
     """Development configuration."""
     DEBUG = True
     BCRYPT_LOG_ROUNDS = 4
-    SQLALCHEMY_DATABASE_URI = postgres_local_base + database_name
+    SQLALCHEMY_DATABASE_URI = 'postgresql://puc:123@localhost:5432/' + database_name
 
 
 class TestingConfig(BaseConfig):
