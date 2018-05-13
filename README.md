@@ -57,9 +57,11 @@ $ docker-compose exec web python manage.py cov
 
 ### Create Migration
  1. Add new model to project/server/models.py
- 2. ```sh
- $ python3 manage.py db migrate
- ```
- 3. ```sh
- $ python3 manage.py db upgrade
- ```
+
+```sh
+$ python3 manage.py db migrate
+```
+
+```sh
+$ python3 manage.py db upgrade
+```
